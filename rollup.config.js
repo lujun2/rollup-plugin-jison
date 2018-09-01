@@ -9,6 +9,7 @@ export default {
     { file: pkg.main, format: 'cjs' },
     { file: pkg.module, format: 'es' }
   ],
+  sourcemap: true,
   plugins: [commonjs(), nodeResolve(), json()],
   external: ['path', 'crypto', 'jison']
 };

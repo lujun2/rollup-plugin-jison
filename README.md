@@ -1,5 +1,3 @@
-# Still under development
-
 # rollup-plugin-jison
 
 [![Build Status](https://travis-ci.org/lujun2/rollup-plugin-jison.svg?branch=master)](https://travis-ci.org/lujun2/rollup-plugin-jison) [![NPM Version](https://img.shields.io/npm/v/rollup-plugin-jison.svg)](https://npmjs.org/package/rollup-plugin-jison) [![License](https://img.shields.io/npm/l/rollup-plugin-jison.svg)](https://github.com/lujun2/rollup-plugin-jison/blob/master/LICENSE.md)
@@ -25,6 +23,10 @@ import jison from "rollup-plugin-jison";
 
 rollup({
   entry: "main.js",
-  plugins: [jison()]
+  plugins: [
+    jison({
+      type: "lalr" // algorithm to use for the parser (lr0, slr,lalr, lr), default lalr
+    })
+  ]
 });
 ```
