@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-jison",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Import Jison grammars as parsers directly in your code",
   "author": "Lu, Jun <lujun@wisefin.tech>",
   "license": "MIT",
