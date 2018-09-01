@@ -10,10 +10,8 @@ test(t =>
   })
     .then(bundle => bundle.generate({ format: 'cjs' }))
     .then(generated => {
-      const exports = {};
-      const fn = new Function('exports', 'module', 'require', generated.code);
-      fn(exports, module, require);
-      const { parse } = exports;
+      const source = generated.code;
+      const { parse } = eval(source);
       t.deepEqual(parse('1 + 2'), 3);
       t.deepEqual(parse('1 - 2'), -1);
       t.deepEqual(parse('1 * 2'), 2);

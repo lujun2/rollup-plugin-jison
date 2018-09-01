@@ -8,9 +8,16 @@ export default (options = {}) => ({
     const filter = createFilter(include, exclude);
     if (!filter(id)) return null;
 
-    const parser = new Jison.Generator(grammar);
+    const parser = new Jison.Generator(grammar, { moduleType: 'js' });
+
+    const source = parser.generate();
+    const exporter = `
+parser.parse = parser.parse.bind(parser);
+export default parser;
+    `;
+
     return {
-      code: parser.generate(),
+      code: `${source} ${exporter}`,
       map: { mappings: '' }
     };
   }
