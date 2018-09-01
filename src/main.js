@@ -12,7 +12,10 @@ export default (options = {}) => ({
 
     const source = parser.generate();
     const exporter = `
-parser.parse = parser.parse.bind(parser);
+const parse = parser.parse.bind(parser);
+parser.parse = parse;
+
+export { parse };
 export default parser;
     `;
 
