@@ -1,0 +1,40 @@
+{
+  "name": "rollup-plugin-jison",
+  "version": "0.0.1",
+  "description": "Import Jison grammars as parsers directly in your code",
+  "author": "Lu, Jun <lujun@wisefin.tech>",
+  "license": "MIT",
+  "main": "dist/rollup-plugin-jison.cjs.js",
+  "module": "dist/rollup-plugin-jison.esm.js",
+  "jsnext:main": "src/main.js",
+  "repository": "lujun2/rollup-plugin-jison",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint --fix src test",
+    "pretest": "npm run build",
+    "test": "ava",
+    "preversion": "npm test",
+    "precommit": "lint-staged",
+    "postversion": "git push --tags && git push"
+  },
+  "dependencies": {
+    "jison": "^0.4.18",
+    "rollup-pluginutils": "^2.3.1"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "eslint": "^5.5.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-commonjs": "^9.1.6",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0"
+  },
+  "keywords": [
+    "jison",
+    "rollup-plugin"
+  ]
+}
